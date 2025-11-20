@@ -1,13 +1,23 @@
+#Q22.py
 class Solution(object):
-    def mergeTwoLists(self, l1, l2):
-        dummy = t = ListNode(0)
-        while l1 and l2:
-            if l1.val < l2.val:
-                t.next, l1 = l1, l1.next
-            else:
-                t.next, l2 = l2, l2.next
-            t = t.next
-        t.next = l1 or l2
-        return dummy.next
+    def generateParenthesis(self, n):
+        res = []
+        cur = []
+
+        def dfs(o, c):
+            if not o and not c:
+                res.append("".join(cur))
+                return
+            if o:
+                cur.append("(")
+                dfs(o-1, c)
+                cur.pop()
+            if c > o:
+                cur.append(")")
+                dfs(o, c-1)
+                cur.pop()
+
+        dfs(n, n)
+        return res
 
 __import__("atexit").register(lambda: open("display_runtime.txt", "w").write("0"))
