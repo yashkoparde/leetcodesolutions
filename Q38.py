@@ -1,6 +1,5 @@
-#Q38.py
 class Solution:
-    def countAndSay(self, n: int) -> str:
+    def countAndSay(self, n):
         s = "1"
         for _ in range(n-1):
             t = []
