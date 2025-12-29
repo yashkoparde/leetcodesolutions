@@ -1,0 +1,11 @@
+#Q50.py
+class Solution:
+    def myPow(self, x, n):
+        if n<0:
+            x=1/x; n=-n
+        r=1.0
+        while n:
+            if n&1: r*=x
+            x*=x
+            n>>=1
+        return r
